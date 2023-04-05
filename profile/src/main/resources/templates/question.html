@@ -1,12 +1,85 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
+<head>
+	<style>
+		div {
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 7px;
+		}
+
+		.top {
+			background-color: #6f42c1;
+		}
+
+		.bottom {
+			padding: 0;
+		}
+	</style>
+</head>
+
 <body>
-	<div>
-		<div>
+<!--	<div>
+		<button><a href="/">이전</a></button>
+		<div class="top">
+			Q&A
+			<input id="context" value="" />
+			<button onclick="addBtn()">add</button>
+		</div>
+		<div class="bottom">
 			
 		</div>
+	</div>-->
+	<div class="container">
+		<button><a href="/">이전</a></button>
+		<table>
+			<thead>
+				<tr>
+					Q&A
+					<input id="context" value=""/>
+					<input type="button" value="add"></input>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lists : ${list}">
+					<td th:text="${lists.content}"></td>
+					<td th:text="${lists.redate}"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
+<script>
+	/**
+	let div = null;
+	const $context = document.querySelector("#context");	//input태그
+	const $bottom = document.querySelector(".bottom");		//서브밋버튼
+
+	let arr = ["안녕하세요", "반갑습니다", "또만나요"];
+
+	$.ajax({
+		url:"/ ",
+		type: "post",
+		data: JSON.stringify(arr),
+		contentType: "application/json",
+		success: function(result){
+			alert("저장되었습니다.");
+		},
+		error: function(){
+			alret("에러");
+		}
+	});
+
+	let ar = arr.forEach((e, i) => {
+		div = document.createElement("div");
+		div.innerHTML = arr[i];
+		$bottom.append(div);
+	});
+
+	addBtn = () => {
+		arr.push($context.value);
+	};**/
+</script>
 
 </html>
